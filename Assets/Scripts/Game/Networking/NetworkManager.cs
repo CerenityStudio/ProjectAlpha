@@ -31,16 +31,20 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
-        
         Debug.Log("You joined master server!");
     }
 
-#if UNITY_EDITOR_WIN
-    public override void OnJoinedLobby()
-    {
-        CreateRooms("Test Room");
-    }
-#endif
+//#if UNITY_EDITOR_WIN
+//    public override void OnJoinedLobby()
+//    {
+//        CreateRooms("Test Room");
+//    }
+
+//    public override void OnJoinedRoom()
+//    {
+//        Debug.Log("You joined to room " + PhotonNetwork.CurrentRoom.Name);
+//    }
+//#endif
 
     public void CreateRooms(string roomName)
     {
@@ -56,13 +60,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(roomName);
     }
 
-#if UNITY_EDITOR_WIN
-    public override void OnJoinedRoom()
-    {
-        Debug.Log("You joined to room " + PhotonNetwork.CurrentRoom.Name);
-    }
-#endif
-
+    [PunRPC]
     public void ChangeScene(string sceneName)
     {
         PhotonNetwork.LoadLevel(sceneName);
