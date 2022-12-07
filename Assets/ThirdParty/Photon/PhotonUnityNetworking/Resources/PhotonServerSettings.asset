@@ -41,6 +41,12 @@ MonoBehaviour:
   - RespawnSpaceship
   - UpdateLobbyUI
   - ChangeScene
+  - ImInGame
+  - TakeDamage
+  - OnServerInitialized
+  - Initialized
+  - Heal
+  - GetGold
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
